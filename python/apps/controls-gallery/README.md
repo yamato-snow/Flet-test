@@ -1,40 +1,43 @@
-# Flet Controls Gallery app
+# FlexControlsギャラリーアプリとは？
 
-Flet Controls Gallery app showcases examples of Flet controls usage.
+Fletのコントロールの使い方を実例で見られるショーケースアプリです。わかりやすく言うと、「こんな使い方できますよ〜」っていうのを見せてくれる感じですね。
 
-# How to contribute
+# 開発に参加したい方へ
 
-Contributions are welcome!
+みなさんの協力、大歓迎です！（笑）
 
-Fork this repo.
+まずはこのリポジトリをフォークしてもらって...
+あと、[ここ](https://github.com/flet-dev/flet/blob/main/CONTRIBUTING.md#python-sdk)に書いてある手順でPython SDKをインストールしてください。
 
-Install Python SDK as described [here](https://github.com/flet-dev/flet/blob/main/CONTRIBUTING.md#python-sdk).
+## 既存のコントロールグループに新しいコントロールを追加する場合:
+1. コントロールグループのフォルダの中に、追加したいコントロールの名前でフォルダを作ります
+2. その中にindex.pyファイルを作って、こんな感じで書きます：
 
-## To add a new Control to an existing Control Group:
-1. Create a new folder within the Control Group folder with the name of the Control
-2. Create index.py file with the following contents:
-
+```python
+name = "コントロールの名前"
+description = """コントロールの説明"""
 ```
-name = "<Control name>"
-description = """<Control description>"""
-```
 
-## To add a new example to an existing Control:
-1. Create file named `XX_example_name.py`, where XX would be the order number of an example to be displayed for this control, starting with 01, for example "01_expansiontile_example.py", with the following contents:
+## 既存のコントロールに新しい例を追加する場合:
+1. "XX_example_name.py"っていう名前のファイルを作ります。XXは表示順の番号で、01から始めてください。
+例えば、"01_expansiontile_example.py"みたいな感じです。
+中身はこんな感じ：
 
-```
+```python
 import flet as ft
 
-name = "<Example name>"
+name = "例の名前"
 
 def example():
-    return ft.Text("This example is under construction")
+    return ft.Text("この例は作成中です")
 ```
 
-2. Replace `Text` control with the control you want to display.
+2. `Text`コントロールの部分を、実際に表示したいコントロールに書き換えてください。
 
-Note: Controls Gallery is an [async app](https://flet.dev/docs/guides/python/async-apps). If an event handler calls any async methods such as `update_async`, it should be `async` as well.
+ちなみに、このギャラリーは[非同期アプリ](https://flet.dev/docs/guides/python/async-apps)なんです。なので、`update_async`みたいな非同期メソッドを呼び出すイベントハンドラは、`async`をつける必要があります。
 
-Submit Pull Request (PR) with your changes.
+変更したらプルリクエスト(PR)を送ってください！
 
-When the contribution is tested by Flet team/community a new Flet Controls Gallery release will be published.
+Fletチーム/コミュニティがテストして問題なければ、新しいバージョンのFlexControlsギャラリーがリリースされます。
+
+...こんな感じでどうでしょう？なんか難しそうな部分あったら聞いてくださいね！(笑)

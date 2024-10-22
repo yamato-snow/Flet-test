@@ -1,13 +1,68 @@
-# Flet Icons Browser with deployment to Fly.io
+# Flet アイコンブラウザ - Fly.io へのデプロイ
 
-Deploy:
+このプロジェクトは、Fletを使用してアイコンをブラウズするアプリケーションです。Fly.ioにデプロイすることができます。
 
-    flyctl deploy
+## 環境構築
 
-Check deployment:
+1. 必要なパッケージをインストールします。
+   ```bash
+   pip install -r requirements.txt
+   ```
 
+2. アプリケーションをローカルで実行します。
+   ```bash
+   python main.py
+   ```
+
+## デプロイ方法
+
+### デプロイ
+
+アプリケーションをFly.ioにデプロイするには、以下のコマンドを実行します。
+
+1. **Fly.io CLIのインストール**
+
+   Fly.io CLIをインストールします。詳細は[Fly.ioの公式ドキュメント](https://fly.io/docs/getting-started/installing-flyctl/)を参照してください。
+
+2. **Fly.ioにログイン**
+
+   ```bash
+   flyctl auth login
+   ```
+
+3. **アプリケーションの作成**
+
+   ```bash
+   flyctl launch
+   ```
+
+   プロンプトに従ってアプリケーションの設定を行います。
+
+4. **デプロイ**
+
+   ```bash
+   flyctl deploy
+   ```
+
+デプロイが完了したら、Fly.ioが提供するURLにアクセスしてアプリケーションを確認できます。
+
+
+### デプロイ状況の確認
+
+5. デプロイの状況を確認するには、次のコマンドを使用します。
+
+    ```bash
     flyctl status
+    ```
 
-Re-deploy:
+### 再デプロイ
 
+6. キャッシュを無視して再デプロイするには、以下のコマンドを実行します。
+
+    ```bash
     flyctl deploy --no-cache
+    ```
+
+## 使用方法
+
+アプリケーションを起動すると、アイコンを検索するためのインターフェースが表示されます。キーワードを入力し、検索ボタンを押すことでアイコンを見つけることができます。アイコンをクリックすると、クリップボードにコピーされます。
